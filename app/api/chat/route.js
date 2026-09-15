@@ -28,7 +28,12 @@ export async function POST(request) {
   }
 
   try {
-    const client = new Anthropic();
+    // Workspace'e bagli olmayan (org seviyesi) anahtarlar workspace id header'i ister.
+    const client = new Anthropic(
+      process.env.ANTHROPIC_WORKSPACE_ID
+        ? { defaultHeaders: { "anthropic-workspace-id": process.env.ANTHROPIC_WORKSPACE_ID } }
+        : {},
+    );
     const yanit = await client.messages.create({
       model: "claude-opus-5",
       max_tokens: 1024,
