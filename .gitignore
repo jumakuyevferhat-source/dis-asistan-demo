@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.env.local
+musteriler/
+NOT-YASAL.md
+PROJE-NOTLARI.md
+.playwright-mcp/
+AGENTS.md
+CLAUDE.md
